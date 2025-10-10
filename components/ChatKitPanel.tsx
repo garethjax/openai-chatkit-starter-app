@@ -184,7 +184,6 @@ export function ChatKitPanel({
       }
 
       try {
-        const nowIso = new Date().toISOString();
         const response = await fetch(CREATE_SESSION_ENDPOINT, {
           method: "POST",
           headers: {
@@ -192,7 +191,6 @@ export function ChatKitPanel({
           },
           body: JSON.stringify({
             workflow: { id: WORKFLOW_ID },
-            now: nowIso,
           }),
         });
 

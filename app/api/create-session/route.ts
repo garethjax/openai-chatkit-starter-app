@@ -6,6 +6,7 @@ interface CreateSessionRequestBody {
   workflow?: { id?: string | null } | null;
   scope?: { user_id?: string | null } | null;
   workflowId?: string | null;
+  now?: string;
 }
 
 const DEFAULT_CHATKIT_BASE = "https://api.openai.com";
@@ -29,7 +30,7 @@ export async function POST(request: Request): Promise<Response> {
       );
     }
 
-    const parsedBody = await safeParseJson<CreateSessionRequestBody & { now?: string }>(request);
+    const parsedBody = await safeParseJson<CreateSessionRequestBody>(request);
     const { userId, sessionCookie: resolvedSessionCookie } = await resolveUserId(request);
     sessionCookie = resolvedSessionCookie;
     const resolvedWorkflowId =
@@ -51,6 +52,17 @@ export async function POST(request: Request): Promise<Response> {
       );
     }
 
+    // Format current date in Italian
+    const oggi = new Date();
+    const giorno = oggi.getDate();
+    const meseNames = [
+      "gennaio","febbraio","marzo","aprile","maggio","giugno",
+      "luglio","agosto","settembre","ottobre","novembre","dicembre"
+    ];
+    const mese = meseNames[oggi.getMonth()];
+    const anno = oggi.getFullYear();
+    const dataString = `${giorno} ${mese} ${anno}`;
+
     const apiBase = process.env.CHATKIT_API_BASE ?? DEFAULT_CHATKIT_BASE;
     const url = `${apiBase}/v1/chatkit/sessions`;
     const upstreamResponse = await fetch(url, {
@@ -63,6 +75,9 @@ export async function POST(request: Request): Promise<Response> {
       body: JSON.stringify({
         workflow: { id: resolvedWorkflowId },
         user: userId,
+        state_variables: {
+          current_date_string: dataString,
+        },
       }),
     });
 
