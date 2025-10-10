@@ -76,7 +76,7 @@ export async function POST(request: Request): Promise<Response> {
         workflow: { id: resolvedWorkflowId },
         user: userId,
         state_variables: {
-          current_date_string: dataString,
+          now: dataString,
         },
       }),
     });
