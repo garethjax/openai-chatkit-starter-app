@@ -73,11 +73,13 @@ export async function POST(request: Request): Promise<Response> {
         "OpenAI-Beta": "chatkit_beta=v1",
       },
       body: JSON.stringify({
-        workflow: { id: resolvedWorkflowId },
-        user: userId,
-        state_variables: {
-          now: dataString,
+        workflow: {
+          id: resolvedWorkflowId,
+          state_variables: {
+            now: dataString,
+          },
         },
+        user: userId,
       }),
     });
 
