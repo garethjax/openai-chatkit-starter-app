@@ -29,7 +29,7 @@ export async function POST(request: Request): Promise<Response> {
       );
     }
 
-    const parsedBody = await safeParseJson<CreateSessionRequestBody>(request);
+    const parsedBody = await safeParseJson<CreateSessionRequestBody & { now?: string }>(request);
     const { userId, sessionCookie: resolvedSessionCookie } = await resolveUserId(request);
     sessionCookie = resolvedSessionCookie;
     const resolvedWorkflowId =
