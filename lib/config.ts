@@ -6,23 +6,23 @@ export const CREATE_SESSION_ENDPOINT = "/api/create-session";
 
 export const STARTER_PROMPTS: StartScreenPrompt[] = [
   {
-    label: "Come si sostituisce il motore?",
-    prompt: "Come si sostituisce il motore di un ascensore?",
+    label: "ho un problema di impianto slave",
+    prompt: "Saltuariamente l'impianto Slave non serve le chiamate di piano",
     icon: "circle-question",
   },
   {
-    label: "Interventi di manutenzione",
-    prompt: "Ho un problema con un KONE che non accetta chiamate esterne o interne. Come posso risolvere il problema?",
+    label: "L'impianto non accetta chiamate interne e chiamate esterne",
+    prompt: "Ho un problema : l'impianto non accetta chiamate interne e chiamate esterne",
     icon: "star",
   },
   {
-    label: "Problemi comuni",
-    prompt: "Quali sono i problemi più comuni negli ascensori e come risolverli?",
+    label: "non funziona ripescaggio",
+    prompt: "ho un problema con il ripescaggio",
     icon: "lightbulb",
   },
   {
-    label: "Manuale tecnico",
-    prompt: "Dove trovo le specifiche tecniche per la marca di ascensore che sto riparando?",
+    label: "che giorno è oggi?",
+    prompt: "che giorno è oggi?",
     icon: "book-open",
   },
 ];
