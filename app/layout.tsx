@@ -1,4 +1,4 @@
-import Script from "next/script";
+import { ChatKitScript } from "@/components/ChatKitScript";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -15,20 +15,7 @@ export default function RootLayout({
   return (
     <html lang="it">
       <head>
-        <Script
-          src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js"
-          strategy="afterInteractive"
-          onLoad={() => {
-            window.dispatchEvent(new Event("chatkit-script-loaded"));
-          }}
-          onError={() => {
-            window.dispatchEvent(
-              new CustomEvent("chatkit-script-error", {
-                detail: "Failed to load ChatKit script",
-              })
-            );
-          }}
-        />
+        <ChatKitScript />
       </head>
       <body className="antialiased">{children}</body>
     </html>

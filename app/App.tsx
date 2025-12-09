@@ -22,37 +22,37 @@ export default function App() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-slate-100 px-6 py-6 dark:bg-slate-950">
-       <Image 
-          src="/logo-tre-e.svg" 
-          alt="Logo" 
-          width={500}
-          height={100}
-          className="mb-2 h-8 md:h-12 lg:h-16 w-auto"
-          unoptimized
-        />    qualcosa
+      <Image
+        src="/logo-tre-e.svg"
+        alt="Logo"
+        width={500}
+        height={100}
+        className="mb-2 h-8 md:h-12 lg:h-16 w-auto"
+        unoptimized
+      />
       <div className="mx-auto w-full max-w-5xl">
         {/* Logo fuori dall'header */}
         <div className="mb-4 flex justify-center">
-          <Image 
-            src="/logo-tre-e.svg" 
-            alt="Logo" 
+          <Image
+            src="/logo-tre-e.svg"
+            alt="Logo"
             width={400}
             height={96}
             className="h-16 md:h-20 lg:h-24 w-auto"
             unoptimized
           />
         </div>
-        
+
         {/* Header personalizzato */}
-       
+
         <div className="mb-4 rounded-t-lg bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white shadow-lg">
-              
-<h1 className="text-3xl font-bold">🛗 Assistente Tecnico Ascensori</h1>
+
+          <h1 className="text-3xl font-bold">🛗 Assistente Tecnico Ascensori</h1>
           <p className="mt-2 text-blue-100">
             Supporto intelligente per manutenzione e riparazione multimarche
           </p>
         </div>
-        
+
         <ChatKitPanel
           theme={scheme}
           onWidgetAction={handleWidgetAction}
